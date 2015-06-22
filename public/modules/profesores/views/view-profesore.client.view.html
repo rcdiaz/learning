@@ -1,0 +1,28 @@
+<section data-ng-controller="ProfesoresController" data-ng-init="toViewProfesore()">
+	<div class="page-header">
+		<h1 data-ng-bind="profesore.name"></h1>
+	</div>
+
+	<div class="col-md-12">
+
+		<form novalidate>
+			<formly-form model="profesore" fields="formFields">
+			</formly-form>
+		</form>
+
+		<hr/>
+		<div data-ng-show="((authentication.user) && (authentication.user._id == profesore.user._id))">
+			<a class="btn btn-success" href="/#!/profesores/{{profesore._id}}/edit">
+				<i class="glyphicon glyphicon-edit"></i> Edit
+			</a>
+			<a class="btn btn-danger" title="Remove" ng-really-message="Are you sure ?" ng-really-click="remove()" item="profesore">
+				<i class="glyphicon glyphicon-remove-circle"></i> Delete
+			</a>
+			<a class="btn btn-primary" href="/#!/profesores">
+				<i class="glyphicon glyphicon-list"></i> List Profesores
+			</a>
+		</div>
+
+	</div>
+
+</section>
