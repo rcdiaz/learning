@@ -7,7 +7,7 @@ module.exports = function(app) {
 	// Profesores Routes
 	app.route('/profesores')
 		.get(profesores.list)
-		.post(users.requiresLogin, profesores.create);
+		.post(profesores.create);
 
 	app.route('/profesores/:profesoreId')
 		.get(profesores.read)

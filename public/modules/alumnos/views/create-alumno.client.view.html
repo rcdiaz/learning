@@ -1,27 +1,37 @@
-<section data-ng-controller="AlumnosController" data-ng-init="setFormFields(false)">
-    <div class="page-header">
-        <h1>New Alumno</h1>
+<div class="page-inner ng-scope" data-ng-controller="AlumnosController" data-ng-init="setFormFields(false)">
+    <div class="page-title">
+        <h3>Nuevo Alumno</h3>
+        <div class="page-breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Nuevo Alumno</li>
+            </ol>
+        </div>
     </div>
-    <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+    <div id="main-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-horizontal" data-ng-submit="create()" novalidate>
 
-          <formly-form model="alumno" fields="formFields">
-    			</formly-form>
+                  <formly-form model="alumno" fields="formFields">
+                        </formly-form>
 
-          <hr/>
-          <div class="form-group">
-              <button type="submit" class="btn btn-success">
-                <i class="glyphicon glyphicon-ok"></i> Save
-              </button>
-              <a class="btn btn-danger" href="/#!/alumnos">
-                <i class="glyphicon glyphicon-remove"></i> Cancel
-              </a>
-          </div>
+                  <hr/>
+                  <div class="form-group">
+                      <button type="submit" class="btn btn-success">
+                        <i class="glyphicon glyphicon-ok"></i> Save
+                      </button>
+                      <a class="btn btn-danger" href="/#!/alumnos">
+                        <i class="glyphicon glyphicon-remove"></i> Cancel
+                      </a>
+                  </div>
 
-          <div data-ng-show="error" class="alert alert-danger form-group">
-            <strong data-ng-bind="error"></strong>
-          </div>
+                  <div data-ng-show="error" class="alert alert-danger form-group">
+                    <strong data-ng-bind="error"></strong>
+                  </div>
 
-        </form>
+                </form>
+            </div>
+        </div>
     </div>
-</section>
+</div>

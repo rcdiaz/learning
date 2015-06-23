@@ -1,12 +1,13 @@
 <section data-ng-controller="ProfesoresController" data-ng-init="setFormFields(false)">
     <div class="page-header">
-        <h1>New Profesore</h1>
+        <h1>Nuevo Profesor</h1>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
+            <div class="panel panel-white">
+                <formly-form model="profesore" fields="formFields">  </formly-form>
 
-          <formly-form model="profesore" fields="formFields">
-    			</formly-form>
+            </div>
 
           <hr/>
           <div class="form-group">

@@ -14,8 +14,8 @@
   					key: 'name',
   					type: 'input',
   					templateOptions: {
-  			      label: 'Name:',
-  						disabled: disabled
+  			        label: 'Name:',
+                    disabled: disabled
   			    }
   				}
 
