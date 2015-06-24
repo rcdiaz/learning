@@ -1,34 +1,44 @@
-<section data-ng-controller="ProfesoresController">
-    <div class="page-header">
-        <h1>Profesores</h1>
+<div  class="page-inner ng-scope" data-ng-controller="ProfesoresController">
+    <div class="page-title">
+        <h3>Listado de Profesores</h3>
+        <div class="page-breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Profesores</li>
+            </ol>
+        </div>
     </div>
 
-    <div class="pull-right">
-      <a type="button" class="btn btn-success" href="/#!/profesores/create">
-        <i class="glyphicon glyphicon-open"></i> New Profesore
-      </a>
+    <div id="main-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table ng-table="tableParams" show-filter="true">
+                        <tr ng-repeat="profesore in $data">
+                            <td data-title="'Name'" sortable="'name'" filter="{ 'name': 'text' }">{{profesore.name}}</td>
+                            <td>
+                                <div class="table-actions">
+                                    <td>
+                                        <div class="table-actions">
+                                            <a class="btn btn-default" title="View" href="/#!/profesores/{{profesore._id}}">
+                                                <span class="glyphicon glyphicon-eye-open"></span>
+                                            </a>
+                                            <a class="btn btn-default" title="Edit" href="/#!/profesores/{{profesore._id}}/edit">
+                                                <span class="glyphicon glyphicon-edit"></span>
+                                            </a>
+                                            <a class="btn btn-danger" title="Remove" ng-really-message="Are you sure ?" ng-really-click="remove(profesore)" item="profesore">
+                                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div>
-        <table ng-table="tableParams" show-filter="true">
-            <tr ng-repeat="profesore in $data">
-                <td data-title="'Name'" sortable="'name'" filter="{ 'name': 'text' }">{{profesore.name}}</td>
-                <td>
-                    <div class="table-actions">
-                <td>
-                   <div class="table-actions">
-                        <a class="btn btn-default" title="View" href="/#!/profesores/{{profesore._id}}">
-                            <span class="glyphicon glyphicon-eye-open"></span>
-                        </a>
-                        <a class="btn btn-default" title="Edit" href="/#!/profesores/{{profesore._id}}/edit">
-                            <span class="glyphicon glyphicon-edit"></span>
-                        </a>
-                        <a class="btn btn-danger" title="Remove" ng-really-message="Are you sure ?" ng-really-click="remove(profesore)" item="profesore">
-                  				<span class="glyphicon glyphicon-remove-circle"></span>
-                  			</a>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-</section>
+</div>
+
