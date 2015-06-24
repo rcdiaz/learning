@@ -52,11 +52,15 @@
 }
 
 .ng-table th.filter .input-filter {
-  margin: 12px;
-  width: 90%;
+  margin: -5px;
+  width: 80%;
 }
 
 
 .ng-table-pager {
   margin-top: 20px;
+}
+
+.table-responsive th{
+  width: 12%;
 }

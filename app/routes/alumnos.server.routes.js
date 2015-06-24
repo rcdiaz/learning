@@ -11,8 +11,8 @@ module.exports = function(app) {
 
 	app.route('/alumnos/:alumnoId')
 		.get(alumnos.read)
-		.put(users.requiresLogin, alumnos.hasAuthorization, alumnos.update)
-		.delete(users.requiresLogin, alumnos.hasAuthorization, alumnos.delete);
+		.put(alumnos.update)
+		.delete(alumnos.delete);
 
 	// Finish by binding the Alumno middleware
 	app.param('alumnoId', alumnos.alumnoByID);
