@@ -64,3 +64,15 @@
 .table-responsive th{
   width: 12%;
 }
+
+.formly-field-input{
+  margin-bottom: -17px;
+}
+
+.botonera{
+  margin-top: 35px;
+}
+
+.panel-heading{
+  margin-bottom: -24px;
+}

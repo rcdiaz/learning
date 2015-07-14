@@ -17,18 +17,10 @@
                     </div>
                     <div class="panel-body">
                         <form data-ng-submit="create()" novalidate>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nombre">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Apellido 1">
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <div class="checker"><span><input type="checkbox"></span></div> Check me out
-                                </label>
-                            </div>
-                            <div class="form-group">
+                            <formly-form model="profesore" fields="formFields">
+                            </formly-form>
+
+                            <div class="form-group botonera">
                                 <button type="submit" class="btn btn-success">
                                     <i class="glyphicon glyphicon-ok"></i> Save
                                 </button>
