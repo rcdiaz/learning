@@ -1,0 +1,6 @@
+dudas{
+debugar grunt node inspector
+relacionar esquemas
+Como funciona el new y el save en el controlador cliente.
+
+}

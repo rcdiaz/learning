@@ -1,0 +1,35 @@
+	var profesore = new Profesore(req.body);
+	/*profesore.user = req.user;
+
+	profesore.save(function(err) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(profesore);
+		}
+	});*/
+
+	/*var alumno =  new Alumno({
+		name : 'Pepito Perez',
+		apellido1 : 'pepito',
+		apellido2: 'pepito@pepito.com',
+		telefono: '555',
+		dni:'55545',
+		email:'asdfas'
+	});
+	alumno.save(function(err, doc){
+		if(err)
+			console.log(err);
+		var profesore = new Profesore(req.body)
+		profesore._doc.alumno = doc._id;
+		profesore.save( function(err, doc){
+			console.log(err);
+			console.log(doc);
+		})
+    });*/
+	Profesore.find({name:'88'}).populate('alumno').exec(function(err, doc){
+		console.log(err);
+		console.log(doc);
+	});

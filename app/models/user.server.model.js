@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+	Profesor = mongoose.model('Profesore'),
 	Schema = mongoose.Schema,
 	crypto = require('crypto');
 
@@ -88,6 +89,10 @@ var UserSchema = new Schema({
 	},
 	resetPasswordExpires: {
 		type: Date
+	},
+	profesor: {
+		type: Schema.ObjectId,
+		ref: 'Profesor'
 	}
 });
 

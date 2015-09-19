@@ -5,71 +5,72 @@
  */
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
-	Profesore = mongoose.model('Profesore'),
+	Curso = mongoose.model('Curso'),
 	_ = require('lodash');
 
 /**
- * Create a Profesore
+ * Create a Curso
  */
 exports.create = function(req, res) {
-	var profesore = new Profesore(req.body);
-	profesore.user = req.user;
-	profesore.save(function(err) {
+	var curso = new Curso(req.body);
+	curso.user = req.user;
+
+	curso.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(profesore);
+			res.jsonp(curso);
 		}
 	});
 };
 
 /**
- * Show the current Profesore
+ * Show the current Curso
  */
 exports.read = function(req, res) {
-	res.jsonp(req.profesore);
+	res.jsonp(req.curso);
 };
 
 /**
- * Update a Profesore
+ * Update a Curso
  */
 exports.update = function(req, res) {
-	var profesore = req.profesore ;
+	var curso = req.curso ;
 
-	profesore = _.extend(profesore , req.body);
+	curso = _.extend(curso , req.body);
 
-	profesore.save(function(err) {
+	curso.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(profesore);
+			res.jsonp(curso);
 		}
 	});
 };
 
 /**
- * Delete an Profesore
+ * Delete an Curso
  */
 exports.delete = function(req, res) {
-	var profesore = req.profesore ;
+	var curso = req.curso ;
 
-	profesore.remove(function(err) {
+	curso.remove(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(profesore);
+			res.jsonp(curso);
 		}
 	});
 };
 
 /**
- * List of Profesores
+ * List of Cursos
  */
 exports.list = function(req, res) {
 
@@ -106,39 +107,39 @@ exports.list = function(req, res) {
 	};
 
 
-	Profesore
+	Curso
 		.find()
 		.filter(filter)
 		.order(sort)
-		.page(pagination, function(err, profesores){
+		.page(pagination, function(err, cursos){
 			if (err) {
 				return res.status(400).send({
 					message: errorHandler.getErrorMessage(err)
 				});
 			} else {
-				res.jsonp(profesores);
+				res.jsonp(cursos);
 			}
 		});
 
 };
 
 /**
- * Profesore middleware
+ * Curso middleware
  */
-exports.profesoreByID = function(req, res, next, id) {
-	Profesore.findById(id).populate('user', 'displayName').exec(function(err, profesore) {
+exports.cursoByID = function(req, res, next, id) {
+	Curso.findById(id).populate('user', 'displayName').exec(function(err, curso) {
 		if (err) return next(err);
-		if (! profesore) return next(new Error('Failed to load Profesore ' + id));
-		req.profesore = profesore ;
+		if (! curso) return next(new Error('Failed to load Curso ' + id));
+		req.curso = curso ;
 		next();
 	});
 };
 
 /**
- * Profesore authorization middleware
+ * Curso authorization middleware
  */
 exports.hasAuthorization = function(req, res, next) {
-	if (req.profesore.user.id !== req.user.id) {
+	if (req.curso.user.id !== req.user.id) {
 		return res.status(403).send('User is not authorized');
 	}
 	next();
