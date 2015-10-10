@@ -47,7 +47,7 @@ angular.module('profesores').controller('ProfesoresController',
                 var profesore = $scope.profesore;
 
                 profesore.$update(function () {
-                    $location.path('profesores/' + profesore._id);
+                    $location.path('profesores');
                 }, function (errorResponse) {
                     $scope.error = errorResponse.data.message;
                 });

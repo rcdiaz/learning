@@ -9,10 +9,15 @@ module.exports = function(app) {
 		.get(profesores.list)
 		.post(profesores.create);
 
-	app.route('/profesores/:profesoreId')
+	/*app.route('/profesores/:profesoreId')
 		.get(profesores.read)
 		.put(users.requiresLogin, profesores.hasAuthorization, profesores.update)
-		.delete(users.requiresLogin, profesores.hasAuthorization, profesores.delete);
+		.delete(users.requiresLogin, profesores.hasAuthorization, profesores.delete);*/
+
+	app.route('/profesores/:profesoreId')
+		.get(profesores.read)
+		.put(profesores.update)
+		.delete(profesores.delete);
 
 	// Finish by binding the Profesore middleware
 	app.param('profesoreId', profesores.profesoreByID);

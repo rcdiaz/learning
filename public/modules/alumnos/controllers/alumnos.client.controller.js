@@ -46,7 +46,7 @@ angular.module('alumnos').controller('AlumnosController', ['$scope', '$statePara
 			var alumno = $scope.alumno;
 
 			alumno.$update(function() {
-				$location.path('alumnos/' + alumno._id);
+				$location.path('alumnos');
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});

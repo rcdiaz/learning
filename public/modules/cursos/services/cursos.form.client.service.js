@@ -11,13 +11,37 @@
 
         var fields = [
   				{
-  					key: 'name',
+  					key: 'Nombre del Curso',
   					type: 'input',
   					templateOptions: {
-  			      label: 'Name:',
-  						disabled: disabled
-  			    }
-  				}
+                        placeholder: "Nombre del Curso",
+                        disabled: disabled
+                    }
+  				},
+                {
+                    key: 'Tipo',
+                    type: 'select',
+                    templateOptions: {
+                        placeholder: "Tipo del Curso",
+                        disabled: disabled
+                    }
+                },
+                {
+                    key: 'subTipo',
+                    type: 'input',
+                    templateOptions: {
+                        placeholder: "Subtipo del Curso",
+                        disabled: disabled
+                    }
+                },
+                {
+                    key: 'Intensivo',
+                    type: 'checkbox',
+                    templateOptions: {
+                        label: "Intensivo",
+                        disabled: disabled
+                    }
+                }
 
   			];
 
