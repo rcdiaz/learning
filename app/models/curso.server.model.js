@@ -22,41 +22,24 @@ var CursoSchema = new Schema({
         required: 'Please fill Curso descripcion',
         trim: true
     },
-    Intensivo: {
-        type: Boolean,
-        default: '',
-        trim: true
-    },
-    fechaIni: {
-        type: Date,
-        default: '',
-        required: 'Please fill Curso fechaIni',
-        trim: true
-    },
-    fechaFin: {
-        type: Date,
-        default: '',
-        required: 'Please fill Curso fechaFin',
-        trim: true
-    },
-    duracion: {
+    certificacion: {
         type: String,
         default: '',
-        required: 'Please fill Curso duracion',
+        required: 'Please fill certificacion',
         trim: true
     },
     created: {
         type: Date,
         default: Date.now
     },
-    profesor: {
+    mes: [{
         type: Schema.ObjectId,
-        ref: 'Profesor'
-    },
-    cursoMes: [{
-        type: Schema.ObjectId,
-        ref: 'Profesor'
+        ref: 'Mes'
     }]
+   /* cursoMes: [{
+        type: Schema.ObjectId,
+        ref: 'CursoMes'
+    }]*/
 });
 
 mongoose.model('Curso', CursoSchema);

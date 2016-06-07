@@ -1,7 +1,8 @@
 'use strict';
 
 // Alumnos controller
-angular.module('alumnos').controller('AlumnosController', ['$scope', '$stateParams', '$location', 'Authentication', 'Alumnos', 'TableSettings', 'AlumnosForm',
+angular.module('alumnos').controller('AlumnosController', ['$scope', '$stateParams', '$location', 'Authentication', 'Alumnos',
+    'TableSettings', 'AlumnosForm',
 	function($scope, $stateParams, $location, Authentication, Alumnos, TableSettings, AlumnosForm ) {
 		$scope.authentication = Authentication;
 		$scope.tableParams = TableSettings.getParams(Alumnos);
@@ -11,14 +12,12 @@ angular.module('alumnos').controller('AlumnosController', ['$scope', '$statePara
 			$scope.formFields = AlumnosForm.getFormFields(disabled);
 		};
 
-
+		$scope.alumnosIniciales = new Alumnos($scope.alumno);
 		// Create new Alumno
 		$scope.create = function() {
-			var alumno = new Alumnos($scope.alumno);
-
 			// Redirect after save
 			alumno.$save(function(response) {
-				$location.path('alumnos/' + response._id);
+				$location.path('alumnos');
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});

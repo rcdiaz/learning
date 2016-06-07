@@ -40,21 +40,9 @@
                   }
 
               },
-              {
-                  key: 'telefono',
-                  type: 'input',
-                  templateOptions: {
-                      label: '',
-                      placeholder: 'Teléfono:',
-                      disabled: disabled
-                  }
-
-              }
-
           ];
 
         return fields;
-
       };
 
       var service = {

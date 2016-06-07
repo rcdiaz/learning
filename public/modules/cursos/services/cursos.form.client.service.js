@@ -9,37 +9,44 @@
 
       var getFormFields = function(disabled) {
 
+
         var fields = [
+
   				{
-  					key: 'Nombre del Curso',
+  					key: 'name',
   					type: 'input',
   					templateOptions: {
-                        placeholder: "Nombre del Curso",
-                        disabled: disabled
+                        label: 'Text',
+                        placeholder: 'Nombre del Curso'
                     }
   				},
                 {
-                    key: 'Tipo',
-                    type: 'select',
-                    templateOptions: {
-                        placeholder: "Tipo del Curso",
-                        disabled: disabled
-                    }
-                },
-                {
-                    key: 'subTipo',
+                    key: 'descripcion',
                     type: 'input',
                     templateOptions: {
-                        placeholder: "Subtipo del Curso",
-                        disabled: disabled
+                        label: 'Text',
+                        placeholder: 'Descripcion adicional'
                     }
                 },
                 {
-                    key: 'Intensivo',
-                    type: 'checkbox',
+                    key: 'certificacion',
+                    type: 'select',
                     templateOptions: {
-                        label: "Intensivo",
-                        disabled: disabled
+                        label: 'Certificacion',
+                        "options": [
+                            {
+                                "name": "Cambridge",
+                                "value": "cambridge"
+                            },
+                            {
+                                "name": "Trinity",
+                                "value": "trinity"
+                            },
+                            {
+                                "name": "Otra",
+                                "value": "otra"
+                            }
+                        ]
                     }
                 }
 
@@ -50,7 +57,7 @@
       };
 
       var service = {
-        getFormFields: getFormFields
+          getFormFields: getFormFields
       };
 
       return service;

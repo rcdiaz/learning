@@ -13,10 +13,6 @@ angular.module('alumnos').config(['$stateProvider',
 			url: '/alumnos/create',
 			templateUrl: 'modules/alumnos/views/create-alumno.client.view.html'
 		}).
-		state('viewAlumno', {
-			url: '/alumnos/:alumnoId',
-			templateUrl: 'modules/alumnos/views/view-alumno.client.view.html'
-		}).
 		state('editAlumno', {
 			url: '/alumnos/:alumnoId/edit',
 			templateUrl: 'modules/alumnos/views/edit-alumno.client.view.html'

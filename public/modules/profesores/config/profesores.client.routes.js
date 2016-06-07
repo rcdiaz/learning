@@ -13,10 +13,6 @@ angular.module('profesores').config(['$stateProvider',
 			url: '/profesores/create',
 			templateUrl: 'modules/profesores/views/create-profesore.client.view.html'
 		}).
-		state('viewProfesore', {
-			url: '/profesores/:profesoreId',
-			templateUrl: 'modules/profesores/views/view-profesore.client.view.html'
-		}).
 		state('editProfesore', {
 			url: '/profesores/:profesoreId/edit',
 			templateUrl: 'modules/profesores/views/edit-profesore.client.view.html'

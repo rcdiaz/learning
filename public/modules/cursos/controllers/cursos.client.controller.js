@@ -1,8 +1,8 @@
 'use strict';
-
 // Cursos controller
-angular.module('cursos').controller('CursosController', ['$scope', '$stateParams', '$location', 'Authentication', 'Cursos', 'TableSettings', 'CursosForm',
-	function($scope, $stateParams, $location, Authentication, Cursos, TableSettings, CursosForm ) {
+angular.module('cursos').controller('CursosController', ['$scope',
+	'$stateParams', '$location', 'Authentication', 'Cursos', 'AlumnosCurso', '_', 'TableSettings', 'CursosForm',
+	function($scope, $stateParams, $location, Authentication, Cursos, AlumnosCurso, _, TableSettings, CursosForm ) {
 		$scope.authentication = Authentication;
 		$scope.tableParams = TableSettings.getParams(Cursos);
 		$scope.curso = {};
@@ -11,11 +11,19 @@ angular.module('cursos').controller('CursosController', ['$scope', '$stateParams
 			$scope.formFields = CursosForm.getFormFields(disabled);
 		};
 
+		//Obtenemos los alumnos para el select2
+		AlumnosCurso.get({all: 'all'}, function(data){
+			 $scope.items = data.result;
+		});
+
+        $("#mySel").select2({
+            //data: alumnosIniciales
+        });
+
 
 		// Create new Curso
 		$scope.create = function() {
 			var curso = new Cursos($scope.curso);
-
 			// Redirect after save
 			curso.$save(function(response) {
 				$location.path('cursos/' + response._id);

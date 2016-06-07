@@ -27,7 +27,7 @@
       var settings = {
         total: 0,
         counts: [5, 10, 15],
-        filterDelay: 0,
+        filterDelay: 0
       };
 
       var tableParams = new ngTableParams(params, settings);

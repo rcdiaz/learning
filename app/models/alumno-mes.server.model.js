@@ -17,7 +17,7 @@ var AlumnoMesSchema = new Schema({
 		required: 'Please fill pagado',
 		trim: true
 	},
-	alumno: {
+	idAlumno: {
 		type: Schema.ObjectId,
 		ref: 'Alumno'
 	}

@@ -16,10 +16,9 @@ angular.module('profesores').controller('ProfesoresController',
             // Create new Profesore
             $scope.create = function () {
                 var profesore = new Profesores($scope.profesore);
-
                 // Redirect after save
                 profesore.$save(function (response) {
-                    $location.path('profesores/' + response._id);
+                    $location.path('profesores');
                 }, function (errorResponse) {
                     $scope.error = errorResponse.data.message;
                 });

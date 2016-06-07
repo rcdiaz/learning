@@ -28,12 +28,6 @@ var ProfesoreSchema = new Schema({
         required: 'Please fill Apellido 2',
         trim: true
     },
-    telefono: {
-        type: String,
-        default: '',
-        required: 'Please fill Teléfono',
-        trim: true
-    },
     created: {
         type: Date,
         default: Date.now

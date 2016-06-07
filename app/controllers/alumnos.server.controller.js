@@ -124,6 +124,25 @@ exports.list = function(req, res) {
 };
 
 /**
+ * List of Alumnos to select2 of cursos
+ */
+exports.getAll = function(req, res) {
+
+	Alumno.find(function(err, alumnos){
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			var obj = {};
+			obj.result = alumnos;
+			res.jsonp(obj);
+			
+		}
+	});
+};
+
+/**
  * Alumno middleware
  */
 exports.alumnoByID = function(req, res, next, id) {

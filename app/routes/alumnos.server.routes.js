@@ -9,6 +9,10 @@ module.exports = function(app) {
 		.get(alumnos.list)
 		.post(alumnos.create);
 
+	//Alumnos select2 cursos
+	app.route('/alumnos/:all')
+		.get(alumnos.getAll);
+
 	app.route('/alumnos/:alumnoId')
 		.get(alumnos.read)
 		.put(alumnos.update)
